@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": 1781078131892,
+    "name": "Admin Test",
+    "email": "admin@test.com",
+    "address": "HCMC",
+    "passwordHash": "$2a$10$5PrIxKLR3LnxQuKn8UIQMuccwJ5o2EcIoVXVhrC9vqfA0nUPjZuDa",
+    "role": "staff",
+    "createdAt": "2026-06-10T07:55:32.067Z"
+  }
+]

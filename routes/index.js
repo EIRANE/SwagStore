@@ -3,7 +3,8 @@ const express  = require('express');
 const router   = express.Router();
 const shopCtrl = require('../controllers/shopController');
 const authCtrl = require('../controllers/authController');
-
+const { isStaff } = require('../middleware/auth.middleware');
+const adminCtrl = require('../controllers/adminController');
 // ── Shop ──────────────────────────────────────────────────────
 router.get('/',             shopCtrl.showShop);
 router.post('/cart/add',    shopCtrl.addToCart);
@@ -24,5 +25,6 @@ router.get ('/logout',   authCtrl.logout);
 router.get ('/register', authCtrl.showRegister);
 router.post('/register', authCtrl.register);
 router.get ('/profile',  authCtrl.requireLogin, authCtrl.showProfile);
-
+router.post('/admin/products', authCtrl.requireLogin, isStaff, adminCtrl.createProduct);
+router.post('/admin/orders', authCtrl.requireLogin, isStaff, adminCtrl.placeOrderForCustomer);
 module.exports = router;
